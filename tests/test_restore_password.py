@@ -13,7 +13,6 @@ class TestRestorePassword:
         driver.get(URLS.LOGIN_PAGE)
 
         login_page = LoginPage(driver)
-        login_page.waiting_visibility_forgot_password_button()
         login_page.click_forgot_password_button()
 
         forgot_password_page = ForgotPasswordPage(driver)
@@ -28,7 +27,6 @@ class TestRestorePassword:
         random_email = f'{helpers.generate_random_string(10)}@mail.ru'
 
         forgot_password_page = ForgotPasswordPage(driver)
-        forgot_password_page.waiting_visibility_email_input()
         forgot_password_page.fill_email_field(random_email)
         forgot_password_page.click_restore_button()
 
@@ -46,12 +44,10 @@ class TestRestorePassword:
         random_password = helpers.generate_random_string(10)
 
         forgot_password_page = ForgotPasswordPage(driver)
-        forgot_password_page.waiting_visibility_email_input()
         forgot_password_page.fill_email_field(random_email)
         forgot_password_page.click_restore_button()
 
         reset_password_page = ResetPasswordPage(driver)
-        reset_password_page.waiting_visibility_input_password()
         reset_password_page.fill_password_field(random_password)
         reset_password_page.click_display_password_button()
 
